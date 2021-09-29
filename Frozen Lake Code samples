@@ -1,0 +1,16 @@
+import gym
+ 
+env = gym.make("FrozenLake-v1", desc=None, map_name=None)
+env.reset()
+env.render()
+
+MAX_Iterations=15
+for i in range(MAX_Iterations):
+    random_action=env.action_space.sample()
+    new_state,reward,done,info=env.step(random_action)
+    env.render()
+    if done:
+        break
+    
+print("Action space: ", env.action_space)           # prints the action space
+print("Observation space: ", env.observation_space) # prints the observation space
